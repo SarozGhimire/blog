@@ -22,6 +22,27 @@
   <textarea rows="6" cols="70" placeholder="Write about yourself" name="description"></textarea>
   </div>
 
+  <div class="form-group">
+  <label>Feature</label>
+  <input type="radio" name="feature" value="1"> Yes
+  <input type="radio" name="feature" value="0"> No
+  </div>
+
+  <input type="password" name="password">
+
+  <div class="form-group">
+  <label>Tag</label>
+  <div class="form-check-inline">
+        <input type="checkbox"  name="tag[]" value="Politics">politics
+    </div>
+    <div class="form-check-inline">
+        <input type="checkbox" name="tag[]" value="Culture">Culture
+    </div>
+    <div class="form-check-inline">
+        <input type="checkbox" name="tag[]" value="Sport">Sport
+    </div>
+  </div>
+  
   <div class="form-group">  
   <button type="submit" class="btn btn-primary" name="save">Save</button>
   </div>

@@ -21,6 +21,9 @@
         <th>Category</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Feature</th>
+        <th>Password</th>
+        <th>Tag</th>
         <th colspan="2">Action</th>
       </tr>
     </thead>
@@ -30,6 +33,9 @@
 						<td><?php echo $row['category']; ?></td>
 						<td><?php echo $row['title']; ?></td>
 						<td><?php echo $row['description']; ?></td>
+						<td><?php echo $row['feature']; ?></td>
+						<td><?php echo $row['password']; ?></td>
+						<td><?php echo $row['tag']; ?></td>
 						<td>
 							<a href="edit.php?edit=<?php echo $row['id']; ?>"
 								class="btn btn-info">Edit</a>

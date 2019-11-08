@@ -1,11 +1,13 @@
 <?php 
 session_start();
-	$conn = new mysqli('localhost', 'root', '', 'crud') or die(mysqli_error($conn));
 $id = 0;
 $update =  false;	
 $category = '';
 $title = '';
 $description = '';
+$feature = '';
+$password = '';
+$tag = '';
 
 include('dbConnection.php');
 
@@ -14,8 +16,15 @@ if (isset($_POST['save'])){
 	$category = $_POST['category'];
 	$title = $_POST['title'];
 	$description = $_POST['description'];
+	$feature = $_POST['feature'];
+	$password = $_POST['password'];
+	$tag_array = $_POST['tag'];
 
-	$conn->query("INSERT INTO data (category,title,description) VALUE('$category', '$title', '$description')") or
+
+	$tag = implode(',', $tag_array);
+
+
+	$conn->query("INSERT INTO data (category,title,description,feature,password,tag) VALUE('$category', '$title', '$description', '$feature', '$password', '$tag')") or
 	          die($conn->error);
 
 	header("location: index.php");
@@ -38,6 +47,9 @@ if (isset ($_GET['edit'])){
 		$category = $row['category'];
 		$title = $row['title'];
 		$description = $row['description'];
+		$feature = $row['feature'];
+		$password = $row['password'];
+		$tag = $row['tag'];
 	}
 }
 	
@@ -46,9 +58,14 @@ if (isset ($_GET['edit'])){
 	$category = $_POST['category'];
 	$title = $_POST['title'];
 	$description = $_POST['description'];
+	$feature = $_POST['feature'];
+    $password = $_POST['password'];
+	$tag_array = $_POST['tag'];
 
 
-	$conn->query("UPDATE data SET category='$category', title='$title', description='$description' WHERE id=$id") or die($conn->error);
+	$tag = implode(',', $tag_array);
+
+	$conn->query("UPDATE data SET category='$category', title='$title', description='$description', feature='$feature', password='$password' ,tag='$tag' WHERE id=$id") or die($conn->error);
 
 	header("location: index.php");
 	}

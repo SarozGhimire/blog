@@ -36,6 +36,44 @@ while ($row = $result->fetch_assoc()):
   </div>
 
   <div class="form-group">
+  <label>Feature</label>
+  <input type="radio" name="feature" value="1" <?php if ($row['feature'] == 1): ?>
+      checked 
+    <?php endif ?>> Yes
+  <input type="radio" name="feature" value="0" <?php if ($row['feature'] == 0): ?>
+      checked 
+    <?php endif ?>> No
+  </div>
+
+  <div class="form-group">
+  <label>Password</label>
+  <input type="password" name="password"  maxlength="8"><br>
+  </div>
+
+  <div class="form-group">
+  <label>Tag</label>
+  <?php 
+  $tag = explode(',', $row['tag']);
+   ?>
+  <div class="form-check-inline">
+        <input type="checkbox"  name="tag[]" value="Politics" <?php if (in_array('Politics', $tag)): ?>
+      checked 
+    <?php endif ?>>Politics
+    </div>
+    <div class="form-check-inline">
+        <input type="checkbox" name="tag[]" value="Culture" <?php if (in_array('Culture', $tag)): ?>
+      checked 
+    <?php endif ?>>Culture
+    </div>
+    <div class="form-check-inline">
+        <input type="checkbox" name="tag[]" value="Sport" <?php if (in_array('Sport', $tag)): ?>
+      checked 
+    <?php endif ?>>Sport
+    </div>
+  </div>
+
+
+  <div class="form-group">
     <button type="Submit" class="btn btn-primary" name="update">Update</button>
   </div>
 
